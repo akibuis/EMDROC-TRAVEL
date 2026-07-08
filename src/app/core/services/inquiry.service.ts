@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Observable, of, delay } from 'rxjs';
+import { Observable } from 'rxjs';
+import emailjs from '@emailjs/browser';
+import { environment } from '../../environments/environment';
 import { InquiryFormData } from '../models';
 
 export interface InquiryResponse {
@@ -11,9 +13,33 @@ export interface InquiryResponse {
   providedIn: 'root',
 })
 export class InquiryService {
+  private readonly emailjs = environment.emailjs;
+
   inquire(data: InquiryFormData): Observable<InquiryResponse> {
-    const msg = `${data.tab} inquiry from ${data.name}`;
-    console.log('[InquiryService]', msg, data);
-    return of({ success: true, message: msg }).pipe(delay(600));
+    return new Observable((observer) => {
+      emailjs
+        .send(
+          this.emailjs.serviceId,
+          this.emailjs.templateId,
+          {
+            from_name: data.name,
+            from_email: data.email || 'no-reply@emdroctravel.com',
+            phone: data.phone,
+            subject: `${data.tab} inquiry`,
+            message: data.message,
+            inquiry_type: data.tab,
+          },
+          { publicKey: this.emailjs.publicKey },
+        )
+        .then(
+          () => {
+            observer.next({ success: true, message: `${data.tab} inquiry sent successfully` });
+            observer.complete();
+          },
+          (err) => {
+            observer.error(err);
+          },
+        );
+    });
   }
 }
