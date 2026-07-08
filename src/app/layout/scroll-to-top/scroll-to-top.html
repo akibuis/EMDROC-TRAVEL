@@ -1,0 +1,9 @@
+@if (visible()) {
+  <button
+    (click)="scrollToTop()"
+    class="fixed bottom-8 right-8 z-50 w-12 h-12 bg-secondary text-on-secondary rounded-full shadow-xl flex items-center justify-center transition-all hover:scale-110 hover:shadow-2xl animate-fade-in-up"
+    aria-label="Scroll to top"
+  >
+    <span class="material-symbols-outlined">arrow_upward</span>
+  </button>
+}

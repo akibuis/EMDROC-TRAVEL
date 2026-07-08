@@ -1,0 +1,38 @@
+<app-page-header
+  title="Travel Packages"
+  description="Curated travel packages designed to give you the best value and unforgettable experiences." />
+
+<section class="pb-section-gap bg-surface-container-low">
+  <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+      @for (pkg of packages; track pkg.id) {
+        <div class="group bg-surface rounded-xl overflow-hidden shadow-sm border border-outline-variant/10 hover-lift hover:shadow-md">
+          <div class="relative h-56 overflow-hidden">
+            <img [src]="pkg.image" [alt]="pkg.title" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
+            @if (pkg.isFeatured) {
+              <span class="absolute top-4 left-4 px-3 py-1.5 bg-secondary text-on-secondary text-xs font-semibold rounded-full">Featured</span>
+            }
+            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+            <div class="absolute bottom-4 left-4 right-4">
+              <span class="text-white/80 text-xs">{{ pkg.destination }}</span>
+              <h3 class="text-white font-heading text-title-lg">{{ pkg.title }}</h3>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-4 mb-4 text-sm text-on-surface-variant">
+              <span class="flex items-center gap-1.5">
+                <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                {{ pkg.duration }}
+              </span>
+            </div>
+            <div class="flex items-baseline gap-1 mb-4">
+              <span class="text-2xl font-bold text-primary font-heading">{{ pkg.currency }}{{ pkg.price.toLocaleString() }}</span>
+              <span class="text-sm text-on-surface-variant">/ person</span>
+            </div>
+            <button class="block w-full text-center py-3 rounded-md border-2 border-primary text-primary text-sm font-semibold transition-smooth hover:bg-primary hover:text-white">View Details</button>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

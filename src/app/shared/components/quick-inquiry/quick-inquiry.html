@@ -1,0 +1,94 @@
+<section class="relative z-20 max-w-container-max mx-auto px-margin-desktop -mt-20">
+  <div class="bg-surface-container-lowest rounded-xl shadow-xl overflow-hidden border border-outline-variant/10">
+    <div class="flex flex-wrap border-b border-outline-variant">
+      @for (tab of tabs; track tab.key) {
+        <button
+          (click)="switchTab(tab.key)"
+          class="flex-1 px-6 py-4 flex items-center justify-center gap-2 font-label-md transition-colors"
+          [class]="activeTab() === tab.key
+            ? 'text-secondary border-b-2 border-secondary bg-secondary/5'
+            : 'text-on-surface-variant hover:bg-surface-container'"
+        >
+          <span class="material-symbols-outlined">{{ tab.icon }}</span>
+          {{ tab.label }}
+        </button>
+      }
+    </div>
+    <div class="p-8">
+      @if (submitted()) {
+        <div class="text-center" role="alert">
+          <p class="font-label-md text-secondary">Thank you! We'll get back to you shortly.</p>
+          <button
+            (click)="submitted.set(false)"
+            class="mt-4 font-label-sm text-on-surface-variant hover:text-secondary"
+          >
+            Send another inquiry
+          </button>
+        </div>
+      } @else {
+        <form [formGroup]="inquiryForm" (ngSubmit)="onSubmit()" class="grid grid-cols-1 md:grid-cols-4 gap-gutter items-end">
+          <div class="space-y-2">
+            <label for="inq-name" class="block font-label-sm text-on-surface-variant uppercase">FULL NAME</label>
+            <input
+              id="inq-name"
+              type="text"
+              formControlName="name"
+              placeholder="John Doe"
+              autocomplete="name"
+              class="w-full bg-surface-container-low border-0 rounded-md p-3 focus:ring-2 focus:ring-primary transition-shadow"
+              [class.ring-2]="fieldHasError('name', 'required')"
+            />
+            @if (fieldHasError('name', 'required')) {
+              <p class="text-xs text-secondary mt-1" role="alert">Name is required</p>
+            }
+          </div>
+          <div class="space-y-2">
+            <label for="inq-phone" class="block font-label-sm text-on-surface-variant uppercase">CONTACT NUMBER</label>
+            <input
+              id="inq-phone"
+              type="tel"
+              formControlName="phone"
+              placeholder="+234 ..."
+              autocomplete="tel"
+              class="w-full bg-surface-container-low border-0 rounded-md p-3 focus:ring-2 focus:ring-primary transition-shadow"
+              [class.ring-2]="fieldHasError('phone', 'required') || fieldHasError('phone', 'pattern')"
+            />
+            @if (fieldHasError('phone', 'required')) {
+              <p class="text-xs text-secondary mt-1" role="alert">Phone is required</p>
+            }
+          </div>
+          <div class="space-y-2">
+            <label for="inq-message" class="block font-label-sm text-on-surface-variant uppercase">MESSAGE / REQUIREMENTS</label>
+            <input
+              id="inq-message"
+              type="text"
+              formControlName="message"
+              placeholder="Tell us your needs"
+              class="w-full bg-surface-container-low border-0 rounded-md p-3 focus:ring-2 focus:ring-primary transition-shadow"
+            />
+          </div>
+          <button
+            type="submit"
+            [disabled]="submitting()"
+            class="bg-secondary text-on-secondary py-3 px-6 rounded-md font-label-md hover:opacity-90 transition-opacity disabled:opacity-50"
+          >
+            @if (submitting()) {
+              <span class="flex items-center justify-center gap-2">
+                <svg class="animate-spin h-4 w-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" />
+                  <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                </svg>
+                Sending...
+              </span>
+            } @else {
+              Send Inquiry
+            }
+          </button>
+        </form>
+        @if (error()) {
+          <p class="mt-4 text-sm text-secondary" role="alert">{{ error() }}</p>
+        }
+      }
+    </div>
+  </div>
+</section>

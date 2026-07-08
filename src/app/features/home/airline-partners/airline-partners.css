@@ -1,0 +1,30 @@
+.marquee-track {
+  display: flex;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.marquee-content {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  animation: slide 40s linear infinite;
+}
+
+.marquee-content img {
+  mix-blend-mode: screen;
+}
+
+.marquee-track:hover .marquee-content {
+  animation-play-state: paused;
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}

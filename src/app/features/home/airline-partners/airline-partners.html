@@ -1,0 +1,19 @@
+<section class="bg-brand-dark py-20 relative overflow-hidden">
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-teal/3 rounded-full blur-3xl"></div>
+  <div class="max-w-7xl mx-auto px-8 relative">
+    <p class="text-center text-xs uppercase tracking-[0.2em] text-gray-500 font-semibold mb-3">Global Partnership Network</p>
+    <div class="w-12 h-0.5 bg-brand-teal mx-auto mb-12"></div>
+    <div class="marquee-track">
+      <div class="marquee-content">
+        @for (logo of logos; track logo) {
+          <img [src]="logo" class="h-16 w-auto mx-14 flex-shrink-0" />
+        }
+      </div>
+      <div class="marquee-content" aria-hidden="true">
+        @for (logo of logos; track logo) {
+          <img [src]="logo" class="h-16 w-auto mx-14 flex-shrink-0" />
+        }
+      </div>
+    </div>
+  </div>
+</section>

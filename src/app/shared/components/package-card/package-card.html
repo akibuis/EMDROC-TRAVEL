@@ -1,0 +1,42 @@
+<div class="group bg-surface rounded-xl overflow-hidden shadow-sm border border-outline-variant/10 hover-lift hover:shadow-md">
+  <div class="relative h-56 overflow-hidden">
+    <img
+      [src]="packageData().image"
+      [alt]="packageData().title"
+      class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+      loading="lazy"
+    />
+    @if (packageData().isFeatured) {
+      <span class="absolute top-4 left-4 px-3 py-1.5 bg-secondary text-on-secondary text-xs font-semibold rounded-full">
+        Featured
+      </span>
+    }
+    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+    <div class="absolute bottom-4 left-4 right-4 flex items-end justify-between">
+      <div>
+        <span class="text-white/80 text-xs">{{ packageData().destination }}</span>
+        <h3 class="text-white font-heading text-title-lg">{{ packageData().title }}</h3>
+      </div>
+    </div>
+  </div>
+  <div class="p-6">
+    <div class="flex items-center gap-4 mb-4 text-sm text-on-surface-variant">
+      <span class="flex items-center gap-1.5">
+        <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        {{ packageData().duration }}
+      </span>
+    </div>
+    <div class="flex items-baseline gap-1 mb-4">
+      <span class="text-2xl font-bold text-primary font-heading">{{ packageData().currency }}{{ packageData().price.toLocaleString() }}</span>
+      <span class="text-sm text-on-surface-variant">/ person</span>
+    </div>
+    <a
+      routerLink="/packages/{{ packageData().id }}"
+      class="block w-full text-center py-3 rounded-md border-2 border-primary text-primary text-sm font-semibold transition-smooth hover:bg-primary hover:text-white"
+    >
+      View Details
+    </a>
+  </div>
+</div>

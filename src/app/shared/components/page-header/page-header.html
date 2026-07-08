@@ -1,0 +1,31 @@
+<header
+  role="banner"
+  class="relative min-h-[220px] lg:min-h-[340px] flex items-center overflow-hidden">
+  <div
+    class="absolute inset-0 bg-cover bg-center"
+    style="background-image: url('{{ bgImage }}')"
+    aria-hidden="true">
+  </div>
+  <div
+    class="absolute inset-0"
+    style="background: linear-gradient(rgba(0,60,74,0.85), rgba(0,151,178,0.7))"
+    aria-hidden="true">
+  </div>
+
+  <div class="relative z-10 w-full px-6 lg:pl-24 max-w-7xl mx-auto">
+    <h1 class="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight" style="font-family: 'Be Vietnam Pro', sans-serif">
+      {{ title }}
+    </h1>
+    @if (description) {
+      <p class="text-white/85 text-base sm:text-lg max-w-md mt-3 leading-relaxed" style="font-family: Inter, sans-serif">
+        {{ description }}
+      </p>
+    }
+  </div>
+
+  <div class="absolute right-8 lg:right-16 bottom-4 lg:bottom-8 hidden lg:block pointer-events-none" aria-hidden="true">
+    <svg class="w-24 h-24 text-white/5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="0.5">
+      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+    </svg>
+  </div>
+</header>

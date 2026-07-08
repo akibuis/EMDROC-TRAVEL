@@ -1,0 +1,13 @@
+<section class="py-section-gap bg-gradient-to-r from-[#005f73] to-primary">
+  <div class="max-w-container-max mx-auto px-margin-desktop">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-gutter">
+      @for (stat of stats; track stat.label) {
+        <div class="text-center text-white scroll-reveal">
+          <span class="material-symbols-outlined text-4xl text-white/60 mb-3 inline-block">{{ stat.icon }}</span>
+          <div class="font-display-lg text-display-lg font-bold mb-1">{{ stat.value }}</div>
+          <div class="font-label-md text-white/70 uppercase tracking-widest">{{ stat.label }}</div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

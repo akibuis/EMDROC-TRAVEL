@@ -1,0 +1,78 @@
+<app-page-header
+  title="The World, Curated for You"
+  description="Experience global travel through the lens of corporate precision and high-end hospitality."
+  backgroundImage="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=1600&q=80" />
+
+<section class="py-20 px-8 max-w-7xl mx-auto">
+  <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+    <div>
+      <h2 class="text-2xl md:text-3xl font-bold text-white mb-2">Elite Portfolio</h2>
+      <p class="text-gray-400 max-w-md">Our signature selection of destinations tailored for the modern executive and their families.</p>
+    </div>
+    <div class="flex gap-2">
+      <button class="p-3 border border-white/10 rounded-full text-gray-400 hover:text-brand-teal hover:border-brand-teal/30 transition-all">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
+      </button>
+      <button class="p-3 border border-white/10 rounded-full text-gray-400 hover:text-brand-teal hover:border-brand-teal/30 transition-all">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+    @for (dest of destinations; track dest.id) {
+      <div class="{{ dest.cols }} group relative overflow-hidden rounded-[24px] glass-effect h-[400px] cursor-pointer">
+        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('{{ dest.image }}')"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/20 to-transparent p-8 flex flex-col justify-end">
+          <div>
+            <span class="{{ dest.categoryColor }} px-3 py-1 rounded-full text-xs font-semibold mb-2 inline-block">{{ dest.category }}</span>
+            <h3 class="text-xl font-bold text-white mb-1">{{ dest.name }}</h3>
+            <p class="text-sm text-gray-400 mb-4 max-w-md">{{ dest.description }}</p>
+            <button class="bg-brand-teal text-white font-semibold px-5 py-2 rounded-xl text-sm flex items-center gap-2 hover:brightness-110 transition-all">
+              Explore Itinerary
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</section>
+
+<section class="bg-[#09232a] py-20">
+  <div class="max-w-7xl mx-auto px-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+      <div class="relative">
+        <div class="absolute -inset-4 bg-brand-teal/10 blur-3xl rounded-full"></div>
+        <div class="relative aspect-square rounded-[32px] overflow-hidden border border-white/10">
+          <img class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&q=80" alt="Travel planning" />
+        </div>
+      </div>
+      <div class="md:pl-12">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-6 leading-tight">Bespoke <br/><span class="text-brand-teal">Itineraries</span></h2>
+        <p class="text-lg text-gray-400 mb-8">
+          Standard travel is for the masses. At EMDROC, we treat travel as a strategic asset. Our advisory team builds multi-city, multi-timezone itineraries that respect your schedule and exceed your expectations.
+        </p>
+        <ul class="space-y-6 mb-8">
+          <li class="flex items-start gap-3">
+            <svg class="w-6 h-6 text-brand-teal shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
+            <div>
+              <h4 class="font-bold text-white">Private Aviation Integration</h4>
+              <p class="text-sm text-gray-400">Seamless transfers from jet to suite without a single delay.</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-6 h-6 text-brand-teal shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
+            <div>
+              <h4 class="font-bold text-white">Risk Management & Security</h4>
+              <p class="text-sm text-gray-400">Confidential routing and executive protection for sensitive locations.</p>
+            </div>
+          </li>
+        </ul>
+        <a class="inline-flex items-center gap-2 bg-brand-teal text-white font-bold px-10 py-4 rounded-xl hover:brightness-110 transition-all" routerLink="/contact">
+          Start Planning Your Journey
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
