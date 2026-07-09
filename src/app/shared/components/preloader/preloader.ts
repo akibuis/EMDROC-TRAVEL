@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, NgZone, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-preloader',
@@ -10,10 +10,14 @@ export class Preloader implements OnDestroy {
   protected hidden = false;
   private timer: ReturnType<typeof setTimeout> | null = null;
 
-  constructor() {
-    this.timer = setTimeout(() => {
-      this.hidden = true;
-    }, 1500);
+  constructor(private zone: NgZone) {
+    this.zone.runOutsideAngular(() => {
+      this.timer = setTimeout(() => {
+        this.zone.run(() => {
+          this.hidden = true;
+        });
+      }, 1500);
+    });
   }
 
   ngOnDestroy(): void {
