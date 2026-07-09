@@ -173,7 +173,21 @@
 }
 
 .light-mode .hero-gradient {
-  background: linear-gradient(180deg, rgba(248, 250, 252, 0.4) 0%, rgba(248, 250, 252, 0.8) 80%, #f8fafc 100%);
+  background: linear-gradient(180deg, rgb(21 36 51 / 40%) 0%, rgb(69 127 185 / 32%) 80%, #336495 100%);
+}
+
+.light-mode .hero-section h1 {
+  color: #ffffff !important;
+}
+
+.light-mode .hero-section .text-gray-200,
+.light-mode .hero-section p.text-gray-200,
+.light-mode .hero-section p {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.light-mode .hero-section .text-brand-teal {
+  color: #66d5f1 !important;
 }
 
 .light-mode .bg-surface-container-lowest {
@@ -206,6 +220,83 @@
 
 .light-mode .text-primary {
   color: #0097B2 !important;
+}
+
+.light-mode .text-secondary {
+  color: #e6007e !important;
+}
+
+.light-mode .text-gray-200 {
+  color: #475569 !important;
+}
+
+.light-mode .bg-brand-dark {
+  background-color: #f1f5f9 !important;
+}
+
+.light-mode .border-white\/10,
+.light-mode .border-white\/20 {
+  border-color: #e2e8f0 !important;
+}
+
+.light-mode .testimonial-card {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+}
+
+.light-mode .testimonial-card .text-white,
+.light-mode .testimonial-card .text-white\/90,
+.light-mode .testimonial-card .text-white\/80 {
+  color: #1e293b !important;
+}
+
+.light-mode .testimonial-card .bg-white\/20,
+.light-mode .testimonial-card .bg-white\/40 {
+  background-color: #cbd5e1 !important;
+}
+
+.newsletter-card {
+  background: linear-gradient(135deg, #0097B2 0%, #005f73 100%);
+}
+
+.counter-stats-bg {
+  background: linear-gradient(135deg, #005f73 0%, #0097B2 100%);
+}
+
+.light-mode .counter-stats-bg {
+  background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+}
+
+.light-mode .counter-stats-bg * {
+  color: #1e293b !important;
+}
+
+.light-mode .newsletter-card {
+  background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+}
+
+.light-mode .newsletter-card h2,
+.light-mode .newsletter-card p {
+  color: #1e293b !important;
+}
+
+.light-mode .newsletter-card input {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  border-color: #cbd5e1 !important;
+  color: #1e293b !important;
+}
+
+.light-mode .newsletter-card input::placeholder {
+  color: #94a3b8 !important;
+}
+
+.light-mode .newsletter-card button {
+  background-color: #0097B2 !important;
+  color: #ffffff !important;
+}
+
+.light-mode .hero-svg-curve {
+  fill: #f8fafc;
 }
 
 .light-mode header nav {
