@@ -7,7 +7,7 @@
   <!-- Featured Story -->
   <div class="max-w-container-max mx-auto px-margin-desktop mb-24">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
-      <div class="lg:col-span-7 rounded-[24px] overflow-hidden shadow-xl h-[500px] relative group">
+      <a [routerLink]="['/blog', articles[0].id]" class="lg:col-span-7 rounded-[24px] overflow-hidden shadow-xl h-[500px] relative group block">
         <div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD8u5uYFY6hp_8DmkuIpD0oJF-5cij4wWa37l0b1NiCao7BVkXCFZakzPbHuU6ajZ1bYxAMRZ3kOw9VvPWYjQhtSBI61nzfmGWK2pUmfBFolqoX74yVN9wfZnqoqKFXwgms3mdyBGgzOOF7thNj7Gqoq5P5RYieivwXQyosVW65kEC3eAiXwOPv5dyqgEYjE692J2VYLjGPAMEHHQWL6sK35IeYtqy9xg2uK_8ypxyTT410ToUts0FjSw')"></div>
         <div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent"></div>
         <div class="absolute bottom-0 left-0 p-stack-lg">
@@ -15,14 +15,14 @@
           <h2 class="text-white font-display-lg text-headline-md mb-2">The Future of Executive Travel in Africa: 2025 Outlook</h2>
           <p class="text-white/80 font-body-md max-w-lg">How emerging tech hubs and infrastructure projects are reshaping the landscape for continental corporate expansion.</p>
         </div>
-      </div>
+      </a>
       <div class="lg:col-span-5 flex flex-col gap-stack-lg">
         @for (side of sideArticles; track side.title) {
           <div class="p-8 bg-surface-container-low rounded-[24px] border border-outline-variant/10">
             <span class="text-secondary font-label-sm mb-2 block">{{ side.category }}</span>
             <h3 class="font-title-lg text-primary mb-4">{{ side.title }}</h3>
             <p class="font-body-md text-on-surface-variant mb-6">{{ side.excerpt }}</p>
-            <a class="text-primary font-label-md flex items-center gap-2 group" href="#">
+            <a class="text-primary font-label-md flex items-center gap-2 group" [routerLink]="['/blog', 'featured']">
               Read more <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
             </a>
           </div>
@@ -44,7 +44,7 @@
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
       @for (article of articles; track article.id) {
-        <article class="bg-white rounded-[24px] shadow-xl overflow-hidden group border border-outline-variant/10">
+        <a [routerLink]="['/blog', article.id]" class="bg-white rounded-[24px] shadow-xl overflow-hidden group border border-outline-variant/10 block">
           <div class="h-64 overflow-hidden relative">
             <div class="w-full h-full bg-cover bg-center group-hover:scale-110 transition-transform duration-500" [style.background-image]="'url(' + article.image + ')'"></div>
             <span class="absolute top-4 left-4 px-3 py-1 bg-primary/90 backdrop-blur-sm text-white rounded-full font-label-sm">{{ article.category }}</span>
@@ -66,7 +66,7 @@
               <span class="material-symbols-outlined text-outline group-hover:text-secondary transition-colors">bookmark</span>
             </div>
           </div>
-        </article>
+        </a>
       }
     </div>
     <div class="mt-16 text-center">

@@ -23,6 +23,10 @@ export const routes: Routes = [
     loadChildren: () => import('./features/contact/contact-page.routes').then(m => m.CONTACT_ROUTES)
   },
   {
+    path: 'blog',
+    loadChildren: () => import('./features/blog/blog-page.routes').then(m => m.BLOG_ROUTES)
+  },
+  {
     path: '**',
     redirectTo: ''
   }

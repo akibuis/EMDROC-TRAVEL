@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { PageHeader } from '../../../shared/components/page-header/page-header';
 
 interface Article {
@@ -16,7 +17,7 @@ interface Article {
 
 @Component({
   selector: 'app-blog-page',
-  imports: [PageHeader],
+  imports: [RouterLink, PageHeader],
   templateUrl: './blog-page.html',
   styleUrl: './blog-page.css',
 })

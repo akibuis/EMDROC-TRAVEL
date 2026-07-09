@@ -20,6 +20,7 @@ export class Navbar {
     { label: 'About', route: '/about' },
     { label: 'Services', route: '/services' },
     { label: 'Destinations', route: '/destinations' },
+    { label: 'Insights', route: '/blog' },
     { label: 'Contact', route: '/contact' },
   ];
 }
