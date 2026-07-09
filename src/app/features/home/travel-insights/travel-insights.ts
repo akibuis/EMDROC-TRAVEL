@@ -1,16 +1,17 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { BlogPost } from '../../../core/models';
 
 @Component({
   selector: 'app-travel-insights',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './travel-insights.html',
   styleUrl: './travel-insights.css',
 })
 export class TravelInsights {
   protected readonly posts: BlogPost[] = [
     {
-      id: '1',
+      id: 'featured',
       title: 'The Future of Post-Pandemic Corporate Travel in Africa',
       excerpt: 'Navigating the new landscape of business mobility with efficiency and safety.',
       image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDEZFPxHu5ZgPH7w_NgyuLo8KYUF-RIsm6PglXm5cpAcEkQZa9wMjTmeBiCVeKrvvk9a3ftns9jQPOlK5s8QyLksdEIuo-0fuVk_Lo8BwaOYWn6oj6NFK4qGVTbBIPDgPJtNllaRZA94d3Lfizs9qu4o3gpgX-2a-gwI79lKOLXKZ8viPN-86gk4HN98cgXv6krTuYJOMDWprroYw4ZPmuwX01yGNktgJepOZj_tegjVChmGsVx5FAFaA',

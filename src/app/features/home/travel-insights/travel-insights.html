@@ -5,13 +5,13 @@
         <span class="text-secondary font-label-sm tracking-widest uppercase">Expert Perspective</span>
         <h2 class="font-display-lg text-display-md text-primary mt-2">Travel Insights</h2>
       </div>
-      <a class="text-primary font-label-md flex items-center gap-2 group" href="#">
+      <a class="text-primary font-label-md flex items-center gap-2 group" routerLink="/blog">
         Read Journal <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
       </a>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
       @for (post of posts; track post.id) {
-        <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all border border-outline-variant/10 group scroll-reveal">
+        <a [routerLink]="['/blog', post.id]" class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all border border-outline-variant/10 group scroll-reveal block">
           <div class="h-56 relative overflow-hidden">
             <div
               class="bg-cover bg-center w-full h-full group-hover:scale-110 transition-transform duration-500"
@@ -24,7 +24,7 @@
             <h4 class="font-title-lg text-primary mb-3 group-hover:text-secondary transition-colors">{{ post.title }}</h4>
             <p class="text-on-surface-variant font-body-md line-clamp-2">{{ post.excerpt }}</p>
           </div>
-        </div>
+        </a>
       }
     </div>
   </div>
