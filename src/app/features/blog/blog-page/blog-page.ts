@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { PageHeader } from '../../../shared/components/page-header/page-header';
+import { Cta } from '../../../shared/components/cta/cta';
 
 interface Article {
   id: string;
@@ -16,7 +17,7 @@ interface Article {
 
 @Component({
   selector: 'app-blog-page',
-  imports: [RouterLink, PageHeader],
+  imports: [RouterLink, PageHeader, Cta],
   templateUrl: './blog-page.html',
   styleUrl: './blog-page.css',
 })
