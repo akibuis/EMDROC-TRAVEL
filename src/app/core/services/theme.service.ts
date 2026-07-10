@@ -17,6 +17,6 @@ export class ThemeService {
   }
 
   private load(): boolean {
-    return localStorage.getItem('emdroc-theme') === 'light';
+    return localStorage.getItem('emdroc-theme') !== 'dark';
   }
 }
