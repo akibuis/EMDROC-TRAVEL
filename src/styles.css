@@ -257,6 +257,19 @@
   background-color: #cbd5e1 !important;
 }
 
+.light-mode .testimonial-card .border-white\/5,
+.light-mode .testimonial-card .border-white\/10 {
+  border-color: #e2e8f0 !important;
+}
+
+.light-mode .testimonial-card .text-gray-400 {
+  color: #64748b !important;
+}
+
+.light-mode .testimonial-card .text-white\/20 {
+  color: #cbd5e1 !important;
+}
+
 .newsletter-card {
   background: linear-gradient(135deg, #0097B2 0%, #005f73 100%);
 }
