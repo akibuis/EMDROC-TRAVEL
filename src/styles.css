@@ -433,17 +433,17 @@
   fill: #f8fafc;
 }
 
-.light-mode header nav {
+.light-mode #main-nav {
   background: rgba(255, 255, 255, 0.85) !important;
   border-color: rgba(0, 0, 0, 0.08) !important;
 }
 
-.light-mode header nav a,
-.light-mode header nav li a {
+.light-mode #main-nav a,
+.light-mode #main-nav li a {
   color: #1e293b !important;
 }
 
-.light-mode header nav a:hover {
+.light-mode #main-nav a:hover {
   color: #0097B2 !important;
 }
 
