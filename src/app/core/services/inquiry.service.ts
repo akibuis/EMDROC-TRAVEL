@@ -26,7 +26,7 @@ export class InquiryService {
             from_name: data.name,
             from_email: data.email || 'no-reply@emdroctravel.com',
             phone: data.phone || 'Not provided',
-            inquiry_subject: `${data.tab} inquiry`,
+            subject: `${data.tab} inquiry`,
             message: data.message || 'No additional details provided.',
             inquiry_type: data.tab,
           },
