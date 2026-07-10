@@ -1,16 +1,14 @@
 <header
   class="sticky top-0 w-full z-50 px-margin-mobile md:px-8 py-4 transition-all duration-500"
-  [class.bg-brand-dark/95]="isScrolled()"
-  [class.backdrop-blur-lg]="isScrolled()"
-  [class.shadow-lg]="isScrolled()"
-  [class.shadow-brand-teal/5]="isScrolled()"
 >
   <nav
-    class="max-w-7xl mx-auto rounded-full px-8 py-3 flex items-center justify-between transition-all duration-500"
+    class="max-w-7xl mx-auto flex items-center justify-between px-8 py-3 transition-all duration-500"
+    [class.rounded-full]="!isScrolled()"
     [class.glass-effect]="!isScrolled()"
-    [class.bg-white/5]="isScrolled()"
-    [class.border-white/10]="isScrolled()"
-    [class.border]="isScrolled()"
+    [class.rounded-2xl]="isScrolled()"
+    [class.bg-brand-dark/95]="isScrolled()"
+    [class.backdrop-blur-lg]="isScrolled()"
+    [class.shadow-lg]="isScrolled()"
   >
     <a routerLink="/" class="flex items-center gap-2">
       <img
