@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { Hero } from '../hero/hero';
 import { DestinationGrid } from '../destination-grid/destination-grid';
 import { AirlinePartners } from '../airline-partners/airline-partners';
@@ -10,6 +11,7 @@ import { CountUpDirective } from '../../../shared/directives/count-up.directive'
 @Component({
   selector: 'app-home-page',
   imports: [
+    RouterLink,
     Hero,
     DestinationGrid,
     AirlinePartners,
