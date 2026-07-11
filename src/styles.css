@@ -346,6 +346,14 @@
   background-color: #ffffff !important;
 }
 
+.light-mode .bg-\[\#09232a\] .text-white {
+  color: #1e293b !important;
+}
+
+.light-mode .bg-\[\#09232a\] .text-gray-400 {
+  color: #64748b !important;
+}
+
 .light-mode .bg-\[\#001016\] {
   background-color: #f8fafc !important;
 }
