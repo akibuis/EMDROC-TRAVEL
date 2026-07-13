@@ -1,4 +1,4 @@
-import { Component, NgZone, OnDestroy } from '@angular/core';
+import { Component, afterNextRender, ChangeDetectorRef, OnDestroy, inject } from '@angular/core';
 
 @Component({
   selector: 'app-preloader',
@@ -9,13 +9,13 @@ import { Component, NgZone, OnDestroy } from '@angular/core';
 export class Preloader implements OnDestroy {
   protected hidden = false;
   private timer: ReturnType<typeof setTimeout> | null = null;
+  private cdr = inject(ChangeDetectorRef);
 
-  constructor(private zone: NgZone) {
-    this.zone.runOutsideAngular(() => {
+  constructor() {
+    afterNextRender(() => {
       this.timer = setTimeout(() => {
-        this.zone.run(() => {
-          this.hidden = true;
-        });
+        this.hidden = true;
+        this.cdr.detectChanges();
       }, 1500);
     });
   }

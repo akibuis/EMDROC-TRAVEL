@@ -56,8 +56,8 @@ export class Hero implements OnInit, OnDestroy {
           opacity: 1,
           filter: 'saturate(1)',
           zIndex: 30,
-          width: m ? '180px' : '300px',
-          height: m ? '230px' : '380px',
+          width: m ? '110px' : '150px',
+          height: m ? '140px' : '200px',
           pointerEvents: 'auto',
         };
       case 1:
@@ -66,8 +66,8 @@ export class Hero implements OnInit, OnDestroy {
           opacity: 0.75,
           filter: 'saturate(0.7)',
           zIndex: 20,
-          width: m ? '150px' : '260px',
-          height: m ? '190px' : '330px',
+          width: m ? '90px' : '130px',
+          height: m ? '120px' : '170px',
           pointerEvents: 'none',
         };
       case 2:
@@ -76,8 +76,8 @@ export class Hero implements OnInit, OnDestroy {
           opacity: 0.5,
           filter: 'saturate(0.4)',
           zIndex: 10,
-          width: m ? '120px' : '220px',
-          height: m ? '150px' : '280px',
+          width: m ? '80px' : '110px',
+          height: m ? '100px' : '140px',
           pointerEvents: 'none',
         };
       default:

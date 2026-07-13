@@ -8,15 +8,15 @@ import { Component } from '@angular/core';
 })
 export class AirlinePartners {
   logos = [
-    'partners/british-airways.jpg',
-    'partners/air-france.jpg',
+    'partners/british-airways.png',
+    'partners/air-france.png',
     'partners/KLM.png',
     'partners/qatar-airways.png',
     'partners/Lufthansa.png',
-    'partners/Emiratess.png',
-    'partners/virgin-atlantic.jpg',
+    'partners/Emirates.png',
+    'partners/virgin-atlantic.png',
     'partners/arik-air.png',
-    'partners/Aero.jpg',
+    'partners/Aero.png',
     'partners/Qantas.png',
   ];
 }
