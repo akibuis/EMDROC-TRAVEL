@@ -1,16 +1,5 @@
-import { Component, signal, computed, OnInit, OnDestroy, PLATFORM_ID, inject, HostListener } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
-import { HERO_DESTINATIONS, Destination } from '../../../core/models/destination.model';
-
-interface CardStyle {
-  transform: string;
-  opacity: number;
-  filter: string;
-  zIndex: number;
-  width: string;
-  height: string;
-  pointerEvents: 'auto' | 'none';
-}
+import { Component, signal, computed, OnInit, OnDestroy } from '@angular/core';
+import { HERO_DESTINATIONS } from '../../../core/models/destination.model';
 
 @Component({
   selector: 'app-hero',
@@ -19,151 +8,21 @@ interface CardStyle {
   styleUrl: './hero.css',
 })
 export class Hero implements OnInit, OnDestroy {
-  private readonly platformId = inject(PLATFORM_ID);
   private autoRotateInterval: ReturnType<typeof setInterval> | undefined;
-  private readonly isBrowser = isPlatformBrowser(this.platformId);
 
   protected readonly destinations = HERO_DESTINATIONS;
   protected readonly activeIndex = signal(0);
-  protected readonly isHovering = signal(false);
-  protected readonly isAnimating = signal(false);
-  protected readonly isMobile = signal(false);
-
   protected readonly activeDestination = computed(() => this.destinations[this.activeIndex()]);
 
-  constructor() {
-    if (this.isBrowser) {
-      this.isMobile.set(window.innerWidth < 640);
-    }
-  }
-
-  @HostListener('window:resize')
-  onResize(): void {
-    if (this.isBrowser) {
-      this.isMobile.set(window.innerWidth < 640);
-    }
-  }
-
-  protected cardStyle(index: number): CardStyle {
-    const total = this.destinations.length;
-    const dist = (index - this.activeIndex() + total) % total;
-    const m = this.isMobile();
-
-    switch (dist) {
-      case 0:
-        return {
-          transform: 'translateX(20px) scale(1) rotate(0deg)',
-          opacity: 1,
-          filter: 'saturate(1)',
-          zIndex: 30,
-          width: m ? '110px' : '150px',
-          height: m ? '140px' : '200px',
-          pointerEvents: 'auto',
-        };
-      case 1:
-        return {
-          transform: m ? 'translateX(-30px) scale(0.85) rotate(-3deg)' : 'translateX(-50px) scale(0.85) rotate(-3deg)',
-          opacity: 0.75,
-          filter: 'saturate(0.7)',
-          zIndex: 20,
-          width: m ? '90px' : '130px',
-          height: m ? '120px' : '170px',
-          pointerEvents: 'none',
-        };
-      case 2:
-        return {
-          transform: m ? 'translateX(-80px) scale(0.7) rotate(-8deg)' : 'translateX(-140px) scale(0.7) rotate(-8deg)',
-          opacity: 0.5,
-          filter: 'saturate(0.4)',
-          zIndex: 10,
-          width: m ? '80px' : '110px',
-          height: m ? '100px' : '140px',
-          pointerEvents: 'none',
-        };
-      default:
-        return {
-          transform: `translateX(${dist === total - 1 ? '100px' : '-140px'}) scale(0.5) rotate(0deg)`,
-          opacity: 0,
-          filter: 'saturate(0)',
-          zIndex: 0,
-          width: m ? '100px' : '200px',
-          height: m ? '130px' : '250px',
-          pointerEvents: 'none',
-        };
-    }
-  }
-
-  protected backgroundImage(index: number): string {
-    return this.destinations[index].backgroundImage;
-  }
-
-  protected frontBackground(): string {
-    return this.activeDestination().backgroundImage;
-  }
-
   ngOnInit(): void {
-    if (this.isBrowser) {
-      this.startAutoRotate();
-    }
-  }
-
-  ngOnDestroy(): void {
-    this.stopAutoRotate();
-  }
-
-  protected next(): void {
-    if (this.isAnimating()) return;
-    this.isAnimating.set(true);
-    this.activeIndex.update(i => (i + 1) % this.destinations.length);
-    setTimeout(() => this.isAnimating.set(false), 500);
-    this.resetAutoRotate();
-  }
-
-  protected prev(): void {
-    if (this.isAnimating()) return;
-    this.isAnimating.set(true);
-    this.activeIndex.update(i => (i - 1 + this.destinations.length) % this.destinations.length);
-    setTimeout(() => this.isAnimating.set(false), 500);
-    this.resetAutoRotate();
-  }
-
-  protected goTo(index: number): void {
-    if (this.isAnimating() || index === this.activeIndex()) return;
-    this.isAnimating.set(true);
-    this.activeIndex.set(index);
-    setTimeout(() => this.isAnimating.set(false), 500);
-    this.resetAutoRotate();
-  }
-
-  protected onMouseEnter(): void {
-    this.isHovering.set(true);
-    this.stopAutoRotate();
-  }
-
-  protected onMouseLeave(): void {
-    this.isHovering.set(false);
-    this.startAutoRotate();
-  }
-
-  private startAutoRotate(): void {
-    if (!this.isBrowser) return;
-    this.stopAutoRotate();
     this.autoRotateInterval = setInterval(() => {
-      if (!this.isHovering()) {
-        this.next();
-      }
+      this.activeIndex.update(i => (i + 1) % this.destinations.length);
     }, 6000);
   }
 
-  private stopAutoRotate(): void {
+  ngOnDestroy(): void {
     if (this.autoRotateInterval) {
       clearInterval(this.autoRotateInterval);
-      this.autoRotateInterval = undefined;
     }
-  }
-
-  private resetAutoRotate(): void {
-    this.stopAutoRotate();
-    this.startAutoRotate();
   }
 }
