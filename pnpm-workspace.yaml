@@ -3,3 +3,5 @@ allowBuilds:
   esbuild: true
   lmdb: true
   msgpackr-extract: true
+overrides:
+  '@babel/core': '>=7.29.2'
