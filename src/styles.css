@@ -121,7 +121,7 @@
   }
 
   .hero-gradient {
-    background: linear-gradient(180deg, rgba(3, 29, 36, 0.4) 0%, rgba(3, 29, 36, 0.8) 80%, #031D24 100%);
+    background: linear-gradient(180deg, rgba(3, 29, 36, 0.75) 0%, rgba(3, 29, 36, 0.6) 40%, rgba(3, 29, 36, 0.85) 80%, #031D24 100%);
   }
 
   .destination-card-offset {
@@ -179,7 +179,7 @@
 }
 
 .light-mode .hero-gradient {
-  background: linear-gradient(180deg, rgb(21 36 51 / 40%) 0%, rgb(69 127 185 / 32%) 80%, #336495 100%);
+  background: linear-gradient(180deg, rgba(3, 29, 36, 0.75) 0%, rgba(3, 29, 36, 0.5) 40%, rgba(3, 29, 36, 0.8) 80%, #031D24 100%);
 }
 
 .light-mode .hero-section h1 {
