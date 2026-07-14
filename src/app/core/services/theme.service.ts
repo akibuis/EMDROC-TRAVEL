@@ -7,6 +7,7 @@ export class ThemeService {
   constructor() {
     effect(() => {
       const light = this.isLight();
+      document.documentElement.classList.toggle('light-mode', light);
       document.body.classList.toggle('light-mode', light);
       localStorage.setItem('emdroc-theme', light ? 'light' : 'dark');
     });

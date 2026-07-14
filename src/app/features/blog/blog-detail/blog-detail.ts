@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal, effect } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 
 interface ArticleContent {
@@ -35,8 +35,8 @@ interface RelatedArticle {
 const ARTICLES: ArticleContent[] = [
   {
     id: 'featured',
-    title: 'The Future of Post-Pandemic Corporate Travel in Africa',
-    heroImage: 'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=1200&q=80',
+    title: 'The Silent Ascent: Redefining Ultra-Private Corporate Aviation in 2025',
+    heroImage: '/blog/corporate-aviation.jpg',
     category: 'Advisory Insight',
     date: 'March 15, 2024',
     readTime: '8 min read',
@@ -88,7 +88,7 @@ const ARTICLES: ArticleContent[] = [
   {
     id: '2',
     title: 'Mastering the Art of Seamless Border Crossings',
-    heroImage: 'https://images.unsplash.com/photo-1556388158-7ea5b7e71d5c?w=1200&q=80',
+    heroImage: '/blog/modern-city.jpg',
     category: 'Travel Logistics',
     date: 'June 12, 2024',
     readTime: '5 min read',
@@ -139,7 +139,7 @@ const ARTICLES: ArticleContent[] = [
   {
     id: '3',
     title: 'Sustainable Luxury: The Rise of Eco-Advisory',
-    heroImage: 'https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?w=1200&q=80',
+    heroImage: '/blog/sustainable-nature.jpg',
     category: 'Hospitality',
     date: 'June 08, 2024',
     readTime: '8 min read',
@@ -189,8 +189,8 @@ const ARTICLES: ArticleContent[] = [
   },
   {
     id: '4',
-    title: 'The Curated Carry-On: Essentials for the Global CMO',
-    heroImage: 'https://images.unsplash.com/photo-1560343090-f0409e92791a?w=1200&q=80',
+    title: 'The Curated Carry-On: Essentials for the Global Executive',
+    heroImage: '/blog/dubai-luxury.jpg',
     category: 'Lifestyle',
     date: 'May 30, 2024',
     readTime: '4 min read',
@@ -234,7 +234,109 @@ const ARTICLES: ArticleContent[] = [
       },
       {
         type: 'paragraph',
-        text: 'For the CMO who needs to arrive ready to present, the carry-on is not an afterthought — it is a strategic investment. EMDROC now offers a pre-flight consultation service that audits and optimizes our clients\' travel kits based on destination, duration, and mission criticality.',
+        text: 'For the executive who needs to arrive ready to present, the carry-on is not an afterthought — it is a strategic investment. EMDROC now offers a pre-flight consultation service that audits and optimizes our clients\' travel kits based on destination, duration, and mission criticality.',
+      },
+    ],
+  },
+  {
+    id: '5',
+    title: 'Beyond the Boardroom: Luxury Isolation Retreats',
+    heroImage: '/blog/luxury-retreat.jpg',
+    category: 'Executive Logistics',
+    date: 'August 30, 2024',
+    readTime: '6 min read',
+    tag: 'Executive',
+    summary: 'Why today\'s CEOs are opting for extreme privacy and natural immersion for their strategic quarterly planning sessions.',
+    blocks: [
+      {
+        type: 'paragraph',
+        text: 'The modern CEO operates in a state of perpetual connectivity. Notifications, board demands, and market fluctuations create an environment where deep strategic thinking is increasingly rare. Enter the luxury isolation retreat — a sanctuary designed for uninterrupted executive focus.',
+      },
+      {
+        type: 'paragraph',
+        text: 'From private island estates in the Seychelles to exclusive mountain lodges in the Rwenzoris, a new class of retreat properties is catering specifically to C-suite leaders who require absolute privacy combined with every conceivable comfort. These are not resorts; they are command centers stripped of distraction.',
+      },
+      {
+        type: 'blockquote',
+        text: 'My most transformative business decisions have been made in isolation. When you remove the noise, the signal becomes unmistakably clear.',
+        author: 'David Ogunlesi',
+        title: 'CEO, Pan-African Investment Partners',
+      },
+      {
+        type: 'heading',
+        text: 'The Architecture of Seclusion',
+      },
+      {
+        type: 'paragraph',
+        text: 'Leading architects are now designing retreats with the executive brain in mind: spaces that balance natural light with complete visual privacy, workstations that integrate seamlessly with global markets, and wellness facilities that maintain peak physical condition. The result is an environment where quarterly planning becomes a regenerative experience.',
+      },
+      {
+        type: 'imageGrid',
+        images: [
+          {
+            url: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80',
+            alt: 'Luxury private villa with ocean view',
+          },
+          {
+            url: 'https://images.unsplash.com/photo-1540541338287-41700207dee6?w=600&q=80',
+            alt: 'Executive boardroom with nature backdrop',
+          },
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: 'EMDROC\'s concierge team curates a shortlist of verified isolation retreats that meet our standards for security, connectivity, and luxury. Each property is vetted for communication infrastructure, medical evacuation capabilities, and absolute discretion.',
+      },
+    ],
+  },
+  {
+    id: '6',
+    title: 'The Hybrid Traveler: Blending Work and Heritage',
+    heroImage: '/blog/african-heritage.jpg',
+    category: 'Industry Trends',
+    date: 'August 12, 2024',
+    readTime: '5 min read',
+    tag: 'Culture',
+    summary: 'Examining the rise of \'Heritage Travel\' among senior executives — tracing roots while maintaining global operational control.',
+    blocks: [
+      {
+        type: 'paragraph',
+        text: 'A growing trend among the African diaspora executive class is the integration of heritage exploration with business travel. These hybrid trips combine boardroom commitments with personal journeys to ancestral communities, creating a powerful synthesis of professional obligation and cultural reconnection.',
+      },
+      {
+        type: 'paragraph',
+        text: 'Our data indicates that over 60% of executives of African descent now incorporate heritage visits into at least one annual business trip to the continent. This trend represents a profound shift in how the global African elite engages with their countries of origin.',
+      },
+      {
+        type: 'blockquote',
+        text: 'Returning to my grandfather\'s village after a board meeting in Accra was the most grounding experience of my career. It changed how I see our investments in West Africa.',
+        author: 'Kwame Asante',
+        title: 'Managing Director, Atlantic Capital Ventures',
+      },
+      {
+        type: 'heading',
+        text: 'The Logistics of Dual-Purpose Travel',
+      },
+      {
+        type: 'paragraph',
+        text: 'Balancing the precision of corporate travel with the flexibility of personal exploration requires a logistics partner who understands both worlds. EMDROC\'s hybrid itinerary service ensures that boardroom commitments are met while allowing for meaningful detours to family origins, cultural sites, and community projects.',
+      },
+      {
+        type: 'imageGrid',
+        images: [
+          {
+            url: 'https://images.unsplash.com/photo-1523805009345-7448845a9e53?w=600&q=80',
+            alt: 'Executive in traditional attire during heritage visit',
+          },
+          {
+            url: 'https://images.unsplash.com/photo-1523805009345-7448845a9e53?w=600&q=80',
+            alt: 'African cultural ceremony with community elders',
+          },
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: 'We provide dedicated ground support that seamlessly transitions clients from executive transport to cultural touring, ensuring that every aspect of the journey — from security protocols to community engagement — is handled with the same standard of excellence.',
       },
     ],
   },
@@ -282,16 +384,17 @@ const RELATED: RelatedArticle[] = [
 export class BlogDetail {
   private route = inject(ActivatedRoute);
 
-  protected articles = ARTICLES;
-  protected trending = TRENDING;
-  protected related = RELATED;
+  protected readonly article = signal<ArticleContent | undefined>(undefined);
+  protected readonly trending = TRENDING;
+  protected readonly related = RELATED;
 
-  protected get article(): ArticleContent | undefined {
-    const id = this.route.snapshot.paramMap.get('id');
-    return this.articles.find((a) => a.id === id);
-  }
+  constructor() {
+    const resolveArticle = (id: string) =>
+      ARTICLES.find((a) => a.id === id);
 
-  protected get snippet(): string {
-    return this.article?.summary ?? '';
+    this.route.paramMap.subscribe((params) => {
+      const id = params.get('id');
+      this.article.set(resolveArticle(id ?? ''));
+    });
   }
 }
