@@ -66,10 +66,10 @@ export class QuickInquiry {
           icon: 'success',
           title: 'Thank You!',
           text: "We'll get back to you shortly.",
-          confirmButtonColor: '#0097B2',
+          confirmButtonColor: '#0087F3',
           background: '#031D24',
           color: '#ffffff',
-          iconColor: '#0097B2',
+          iconColor: '#0087F3',
         });
       },
       error: (err: unknown) => {
@@ -79,10 +79,10 @@ export class QuickInquiry {
           icon: 'error',
           title: 'Something went wrong',
           text: e?.text || 'Please try again.',
-          confirmButtonColor: '#0097B2',
+          confirmButtonColor: '#0087F3',
           background: '#031D24',
           color: '#ffffff',
-          iconColor: '#E6007E',
+          iconColor: '#DE1D9D',
         });
       },
     });

@@ -72,10 +72,10 @@ export class ContactPage {
           icon: 'success',
           title: 'Thank You!',
           text: 'Your inquiry has been received. Our team will respond within 24 hours.',
-          confirmButtonColor: '#0097B2',
+          confirmButtonColor: '#0087F3',
           background: '#031D24',
           color: '#ffffff',
-          iconColor: '#0097B2',
+          iconColor: '#0087F3',
         });
       },
       error: (err: unknown) => {
@@ -85,10 +85,10 @@ export class ContactPage {
           icon: 'error',
           title: 'Something went wrong',
           text: e?.text || 'Please try again.',
-          confirmButtonColor: '#0097B2',
+          confirmButtonColor: '#0087F3',
           background: '#031D24',
           color: '#ffffff',
-          iconColor: '#E6007E',
+          iconColor: '#DE1D9D',
         });
       },
     });

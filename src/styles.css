@@ -1,23 +1,23 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-teal: #0097B2;
+  --color-brand-teal: #0087F3;
   --color-brand-dark: #031D24;
-  --color-brand-accent: #FFD700;
+  --color-brand-accent: #DE1D9D;
 
-  --color-primary: #0097B2;
-  --color-primary-container: #00b8d4;
+  --color-primary: #0087F3;
+  --color-primary-container: #b3d9ff;
   --color-on-primary: #ffffff;
-  --color-on-primary-container: #f9fdff;
-  --color-primary-fixed: #aeecff;
-  --color-primary-fixed-dim: #66d5f1;
-  --color-on-primary-fixed: #001f26;
-  --color-on-primary-fixed-variant: #004e5d;
+  --color-on-primary-container: #001d3d;
+  --color-primary-fixed: #b3d9ff;
+  --color-primary-fixed-dim: #66a9f0;
+  --color-on-primary-fixed: #001d3d;
+  --color-on-primary-fixed-variant: #004a8a;
 
-  --color-secondary: #e6007e;
-  --color-secondary-container: #ff2196;
+  --color-secondary: #DE1D9D;
+  --color-secondary-container: #ff8fd7;
   --color-on-secondary: #ffffff;
-  --color-on-secondary-container: #fffbff;
+  --color-on-secondary-container: #3d0028;
 
   --color-background: #031D24;
   --color-on-background: #ffffff;
@@ -146,22 +146,22 @@
 }
 
 .light-mode {
-  --color-background: #f8fafc;
+  --color-background: #f1f5f9;
   --color-surface: #ffffff;
   --color-on-background: #1e293b;
   --color-on-surface: #1e293b;
   --color-on-surface-variant: #475569;
-  --color-primary: #0097B2;
+  --color-primary: #0087F3;
   --color-primary-container: #e0f2fe;
   --color-on-primary: #ffffff;
-  --color-on-primary-container: #001f26;
+  --color-on-primary-container: #001d3d;
   --color-glass: rgba(0, 0, 0, 0.05);
   --color-glass-border: rgba(0, 0, 0, 0.1);
 }
 
 .light-mode body,
 .light-mode {
-  background-color: #f8fafc;
+  background-color: #f1f5f9;
   color: #1e293b;
 }
 
@@ -193,7 +193,7 @@
 }
 
 .light-mode .hero-section .text-brand-teal {
-  color: #66d5f1 !important;
+  color: #66a9f0 !important;
 }
 
 .light-mode .bg-surface-container-lowest {
@@ -213,7 +213,7 @@
 }
 
 .light-mode .bg-surface-bright {
-  background-color: #f8fafc !important;
+  background-color: #f1f5f9 !important;
 }
 
 .light-mode .bg-surface-container-high {
@@ -225,11 +225,11 @@
 }
 
 .light-mode .text-primary {
-  color: #0097B2 !important;
+  color: #0087F3 !important;
 }
 
 .light-mode .text-secondary {
-  color: #e6007e !important;
+  color: #DE1D9D !important;
 }
 
 .light-mode .text-gray-200 {
@@ -276,11 +276,11 @@
 }
 
 .newsletter-card {
-  background: linear-gradient(135deg, #0097B2 0%, #005f73 100%);
+  background: linear-gradient(135deg, #0087F3 0%, #005bb5 100%);
 }
 
 .counter-stats-bg {
-  background: linear-gradient(135deg, #005f73 0%, #0097B2 100%);
+  background: linear-gradient(135deg, #005bb5 0%, #0087F3 100%);
 }
 
 .light-mode .counter-stats-bg {
@@ -311,7 +311,7 @@
 }
 
 .light-mode .newsletter-card button {
-  background-color: #0097B2 !important;
+  background-color: #0087F3 !important;
   color: #ffffff !important;
 }
 
@@ -324,7 +324,7 @@
 .light-mode .contact-form-card input,
 .light-mode .contact-form-card select,
 .light-mode .contact-form-card textarea {
-  background-color: #f8fafc !important;
+  background-color: #f1f5f9 !important;
   border-color: #cbd5e1 !important;
   color: #1e293b !important;
 }
@@ -340,7 +340,7 @@
 }
 
 .light-mode .bg-\[\#00161d\] {
-  background-color: #f8fafc !important;
+  background-color: #f1f5f9 !important;
 }
 
 .light-mode .bg-\[\#041f26\] {
@@ -360,7 +360,7 @@
 }
 
 .light-mode .bg-\[\#001016\] {
-  background-color: #f8fafc !important;
+  background-color: #f1f5f9 !important;
 }
 
 .light-mode .text-\[\#cde7f0\] {
@@ -397,11 +397,11 @@
 }
 
 .light-mode .text-\[\#66d5f1\] {
-  color: #0097B2 !important;
+  color: #0087F3 !important;
 }
 
 .light-mode .bg-\[\#66d5f1\] {
-  background-color: #0097B2 !important;
+  background-color: #0087F3 !important;
 }
 
 .light-mode .bg-\[\#199eb9\] {
@@ -423,7 +423,7 @@
 }
 
 .light-mode .from-\[\#00161d\] {
-  --tw-gradient-from: #f8fafc !important;
+  --tw-gradient-from: #f1f5f9 !important;
 }
 
 .light-mode .via-\[\#00161d\]\/40 {
@@ -431,11 +431,11 @@
 }
 
 .light-mode .shadow-\[\#66d5f1\]\/10 {
-  --tw-shadow-color: rgba(0, 151, 178, 0.08) !important;
+  --tw-shadow-color: rgba(0, 135, 243, 0.08) !important;
 }
 
 .light-mode .shadow-\[\#66d5f1\]\/20 {
-  --tw-shadow-color: rgba(0, 151, 178, 0.12) !important;
+  --tw-shadow-color: rgba(0, 135, 243, 0.12) !important;
 }
 
 .light-mode .bg-\[\#152d35\] {
@@ -443,7 +443,7 @@
 }
 
 .light-mode .hero-svg-curve {
-  fill: #f8fafc;
+  fill: #f1f5f9;
 }
 
 .light-mode #main-nav {
@@ -457,7 +457,7 @@
 }
 
 .light-mode #main-nav a:hover {
-  color: #0097B2 !important;
+  color: #0087F3 !important;
 }
 
 @keyframes fade-in-up {

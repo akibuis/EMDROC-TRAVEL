@@ -24,10 +24,10 @@ export class Newsletter {
         icon: 'success',
         title: 'Subscribed!',
         text: 'Thank you for subscribing to our travel advisory.',
-        confirmButtonColor: '#0097B2',
+        confirmButtonColor: '#0087F3',
         background: '#031D24',
         color: '#ffffff',
-        iconColor: '#0097B2',
+        iconColor: '#0087F3',
       });
     }
   }

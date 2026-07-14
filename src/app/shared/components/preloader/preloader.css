@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #f8fafc;
+  background-color: #f1f5f9;
   transition: opacity 0.6s ease, visibility 0.6s ease;
 }
 
@@ -54,7 +54,7 @@
 .preloader__bar-fill {
   height: 100%;
   width: 0%;
-  background: linear-gradient(90deg, #66d5f1, #0097B2);
+  background: linear-gradient(90deg, #66a9f0, #0087F3);
   border-radius: 2px;
   animation: preloaderFill 1.5s ease-in-out forwards;
 }
@@ -71,6 +71,6 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   font-weight: 700;
-  color: #0097B2;
+  color: #0087F3;
   margin-top: 8px;
 }
