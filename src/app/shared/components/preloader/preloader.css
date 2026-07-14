@@ -66,10 +66,11 @@
 }
 
 .preloader__tagline {
-  font-family: 'Inter', sans-serif;
-  font-size: 13px;
-  letter-spacing: 0.2em;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 15px;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(189, 200, 205, 0.5);
-  margin-top: 4px;
+  font-weight: 700;
+  color: #0097B2;
+  margin-top: 8px;
 }
