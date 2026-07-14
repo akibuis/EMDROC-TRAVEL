@@ -1,9 +1,10 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { PageHeader } from '../../../shared/components/page-header/page-header';
 import { Cta } from '../../../shared/components/cta/cta';
 import { InquiryService } from '../../../core/services/inquiry.service';
+import { SeoService } from '../../../core/services/seo.service';
 import { EMDROC_CONTACT_INFO } from '../../../core/models';
 import type { InquiryTab } from '../../../core/models';
 
@@ -31,7 +32,14 @@ export class ContactPage {
   constructor(
     private fb: FormBuilder,
     private inquiryService: InquiryService,
+    private seo: SeoService,
   ) {
+    this.seo.setData({
+      title: 'Contact Us',
+      description: 'Get in touch with EMDROC Travel & Tours. Request an executive consultation for corporate travel, visa consultancy, and bespoke concierge services.',
+      url: 'https://emdroc.com/contact',
+      type: 'contact',
+    });
     this.contactForm = this.fb.group({
       fullName: ['', [Validators.required, Validators.minLength(2)]],
       email: ['', [Validators.required, Validators.email]],

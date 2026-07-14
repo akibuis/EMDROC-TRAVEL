@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-const FALLBACK_IMAGE = 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1600&q=80';
+const FALLBACK_IMAGE = '/about/lagos-aerial.jpg';
 
 @Component({
   selector: 'app-page-header',

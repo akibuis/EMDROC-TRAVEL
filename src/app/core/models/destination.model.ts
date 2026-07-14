@@ -10,21 +10,22 @@ export interface Destination {
 }
 
 const SLIDER_IMAGES: { file: string; name: string; country: string; rating: string; heroTitle: string; heroSubtitle: string }[] = [
-  { file: '0ac063cf43554c04b070e480da4a6de3.jpg', name: 'Big Ben', country: 'United Kingdom', rating: '9.3 ★', heroTitle: 'Royal Heritage', heroSubtitle: 'London Calling' },
-  { file: '0cd70f09a5b1fad7ee9f29f12dbd1c5e.jpg', name: 'Shibuya Crossing', country: 'Japan', rating: '9.1 ★', heroTitle: 'Neon Nights', heroSubtitle: 'Tokyo Lights' },
-  { file: '7c6c5cdb3979e2b4bcbebb538fd1757b.jpg', name: 'Iguazu Falls', country: 'Argentina', rating: '9.3 ★', heroTitle: 'Nature\'s Power', heroSubtitle: 'Iguazu Falls' },
+  { file: '0ac063cf43554c04b070e480da4a6de3.jpg', name: 'Global Summit', country: 'Singapore', rating: '9.2 ★', heroTitle: 'Connect Globally', heroSubtitle: 'Corporate Summit' },
+  { file: '0cd70f09a5b1fad7ee9f29f12dbd1c5e.jpg', name: 'Desert Oasis', country: 'Dubai', rating: '9.1 ★', heroTitle: 'Experience Dubai', heroSubtitle: 'Desert Oasis' },
+  { file: '7c6c5cdb3979e2b4bcbebb538fd1757b.jpg', name: 'Mountain Escape', country: 'Switzerland', rating: '9.0 ★', heroTitle: 'Conquer the Alps', heroSubtitle: 'Mountain Escape' },
+  { file: 'ffa611281d20c406337ae73729a34b92.jpg', name: 'Golden Horizon', country: 'Maldives', rating: '8.8 ★', heroTitle: 'Sunset Dreams', heroSubtitle: 'Golden Horizon' },
 ];
 
 export const HERO_DESTINATIONS: Destination[] = [
   {
-    id: 'paris',
-    name: 'Eiffel Tower',
-    country: 'France',
-    rating: '9.4 ★',
-    heroTitle: 'City of Light',
-    heroSubtitle: 'Parisian Elegance',
-    backgroundImage: 'https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=1920&q=80',
-    cardImage: 'https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=600&q=80',
+    id: 'bali',
+    name: 'Bali Paradise',
+    country: 'Indonesia',
+    rating: '9.2 ★',
+    heroTitle: 'Discover Bali',
+    heroSubtitle: 'Tropical Paradise',
+    backgroundImage: '/Hero-slider/0ac063cf43554c04b070e480da4a6de3.jpg',
+    cardImage: '/Hero-slider/0ac063cf43554c04b070e480da4a6de3.jpg',
   },
   ...SLIDER_IMAGES.map((s, i) => ({
     id: `slide-${i}`,
@@ -33,25 +34,7 @@ export const HERO_DESTINATIONS: Destination[] = [
     rating: s.rating,
     heroTitle: s.heroTitle,
     heroSubtitle: s.heroSubtitle,
-    backgroundImage: [
-      'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=1920&q=80',
-      'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=1920&q=80',
-      'https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=1920&q=80',
-    ][i],
-    cardImage: [
-      'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=600&q=80',
-      'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=600&q=80',
-      'https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=600&q=80',
-    ][i],
+    backgroundImage: `/Hero-slider/${s.file}`,
+    cardImage: `/Hero-slider/${s.file}`,
   })),
-  {
-    id: 'rome',
-    name: 'Colosseum',
-    country: 'Italy',
-    rating: '9.3 ★',
-    heroTitle: 'Eternal City',
-    heroSubtitle: 'Roman Grandeur',
-    backgroundImage: 'https://images.unsplash.com/photo-1525874684015-58379d421a52?w=1920&q=80',
-    cardImage: 'https://images.unsplash.com/photo-1525874684015-58379d421a52?w=600&q=80',
-  },
 ];

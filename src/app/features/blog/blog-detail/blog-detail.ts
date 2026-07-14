@@ -1,5 +1,6 @@
 import { Component, inject, signal, effect } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
+import { SeoService } from '../../../core/services/seo.service';
 
 interface ArticleContent {
   id: string;
@@ -70,11 +71,11 @@ const ARTICLES: ArticleContent[] = [
         type: 'imageGrid',
         images: [
           {
-            url: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&q=80',
+            url: '/blog/corporate-aviation.jpg',
             alt: 'Modern airport terminal at twilight',
           },
           {
-            url: 'https://images.unsplash.com/photo-1544507888-56d73eb6046e?w=600&q=80',
+            url: '/blog/dubai-luxury.jpg',
             alt: 'Luxury travel itinerary on marble',
           },
         ],
@@ -121,11 +122,11 @@ const ARTICLES: ArticleContent[] = [
         type: 'imageGrid',
         images: [
           {
-            url: 'https://images.unsplash.com/photo-1580674285054-bed31e145f59?w=600&q=80',
+            url: '/blog/modern-city.jpg',
             alt: 'Modern airport immigration hall with digital kiosks',
           },
           {
-            url: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&q=80',
+            url: '/blog/sustainable-nature.jpg',
             alt: 'Global network connections map',
           },
         ],
@@ -172,11 +173,11 @@ const ARTICLES: ArticleContent[] = [
         type: 'imageGrid',
         images: [
           {
-            url: 'https://images.unsplash.com/photo-1511497584788-876760111969?w=600&q=80',
+            url: '/blog/luxury-retreat.jpg',
             alt: 'Eco-luxury safari lodge overlooking savannah',
           },
           {
-            url: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=600&q=80',
+            url: '/blog/african-heritage.jpg',
             alt: 'Lush green forest canopy from above',
           },
         ],
@@ -223,11 +224,11 @@ const ARTICLES: ArticleContent[] = [
         type: 'imageGrid',
         images: [
           {
-            url: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80',
+            url: '/blog/luxury-resort.jpg',
             alt: 'Leather travel accessories on dark marble',
           },
           {
-            url: 'https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=600&q=80',
+            url: '/blog/corporate-aviation.jpg',
             alt: 'Minimalist sneakers and travel gear',
           },
         ],
@@ -274,11 +275,11 @@ const ARTICLES: ArticleContent[] = [
         type: 'imageGrid',
         images: [
           {
-            url: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80',
+            url: '/blog/dubai-luxury.jpg',
             alt: 'Luxury private villa with ocean view',
           },
           {
-            url: 'https://images.unsplash.com/photo-1540541338287-41700207dee6?w=600&q=80',
+            url: '/blog/modern-city.jpg',
             alt: 'Executive boardroom with nature backdrop',
           },
         ],
@@ -325,11 +326,11 @@ const ARTICLES: ArticleContent[] = [
         type: 'imageGrid',
         images: [
           {
-            url: 'https://images.unsplash.com/photo-1523805009345-7448845a9e53?w=600&q=80',
+            url: '/blog/sustainable-nature.jpg',
             alt: 'Executive in traditional attire during heritage visit',
           },
           {
-            url: 'https://images.unsplash.com/photo-1523805009345-7448845a9e53?w=600&q=80',
+            url: '/blog/sustainable-nature.jpg',
             alt: 'African cultural ceremony with community elders',
           },
         ],
@@ -363,7 +364,7 @@ const TRENDING: TrendingLink[] = [
 const RELATED: RelatedArticle[] = [
   {
     title: 'Regenerative Hospitality in Sub-Saharan Frontiers',
-    image: 'https://images.unsplash.com/photo-1505228395891-9a51e7e86bf6?w=800&q=80',
+    image: '/blog/luxury-resort.jpg',
     tag: 'Sustainability',
     excerpt: 'Exploring eco-luxury retreats that blend conservation with corporate retreat programming.',
   },
@@ -383,6 +384,7 @@ const RELATED: RelatedArticle[] = [
 })
 export class BlogDetail {
   private route = inject(ActivatedRoute);
+  private seo = inject(SeoService);
 
   protected readonly article = signal<ArticleContent | undefined>(undefined);
   protected readonly trending = TRENDING;
@@ -394,7 +396,31 @@ export class BlogDetail {
 
     this.route.paramMap.subscribe((params) => {
       const id = params.get('id');
-      this.article.set(resolveArticle(id ?? ''));
+      const article = resolveArticle(id ?? '');
+      this.article.set(article);
+
+      if (article) {
+        this.seo.setData({
+          title: article.title,
+          description: article.summary,
+          image: article.heroImage.startsWith('http') ? article.heroImage : `https://emdroc.com${article.heroImage}`,
+          url: `https://emdroc.com/blog/${article.id}`,
+          type: 'article',
+          article: {
+            publishedDate: article.date,
+            author: 'EMDROC Editorial',
+            category: article.category,
+            readTime: article.readTime,
+          },
+        });
+      } else {
+        this.seo.setData({
+          title: 'Article Not Found',
+          description: 'The requested article could not be found.',
+          url: `https://emdroc.com/blog/${id}`,
+          type: 'website',
+        });
+      }
     });
   }
 }
